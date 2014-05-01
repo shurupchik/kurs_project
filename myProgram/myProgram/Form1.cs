@@ -45,5 +45,11 @@ namespace myProgram
             MerchForm merchForm = new MerchForm();
             merchForm.Show();
         }
+
+        private void btnSale_Click(object sender, EventArgs e)
+        {
+            SaleForm saleForm = new SaleForm();
+            saleForm.Show();
+        }
     }
 }
