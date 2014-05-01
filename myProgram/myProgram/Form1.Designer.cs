@@ -1,6 +1,6 @@
 ﻿namespace myProgram
 {
-    partial class Form1
+    partial class mainForm
     {
         /// <summary>
         /// Требуется переменная конструктора.
@@ -28,9 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // mainForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(436, 333);
+            this.Name = "mainForm";
+            this.Text = "Сеть торговых точек \"Магазин\"";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
