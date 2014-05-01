@@ -27,5 +27,11 @@ namespace myProgram
             ManagerForm managerForm = new ManagerForm();
             managerForm.Show();
         }
+
+        private void btnProv_Click(object sender, EventArgs e)
+        {
+            ProvisionerForm provForm = new ProvisionerForm();
+            provForm.Show();
+        }
     }
 }

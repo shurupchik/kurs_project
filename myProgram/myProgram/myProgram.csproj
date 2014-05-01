@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\AddEdProvForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddEdProvForm.Designer.cs">
+      <DependentUpon>AddEdProvForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddEdManagerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,11 +84,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Forms\ProvisionerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ProvisionerForm.Designer.cs">
+      <DependentUpon>ProvisionerForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Forms\AddEdBranchForm.resx">
       <DependentUpon>AddEdBranchForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddEdManagerForm.resx">
       <DependentUpon>AddEdManagerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddEdProvForm.resx">
+      <DependentUpon>AddEdProvForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\BranchForm.resx">
       <DependentUpon>BranchForm.cs</DependentUpon>
@@ -92,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ManagerForm.resx">
       <DependentUpon>ManagerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProvisionerForm.resx">
+      <DependentUpon>ProvisionerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
