@@ -16,14 +16,6 @@ namespace myProgram
             InitializeComponent();
         }
 
-        private void btnReportMerch_Load(object sender, EventArgs e)
-        {
-            DateTime date = DateTime.Now;
-            Loader loadMail = new Loader();
-            MessageBox.Show(date.ToString());
-            loadMail.GetAttach(date);
-        }
-
         private void btnBranch_Click(object sender, EventArgs e)
         {
             BranchForm branchForm = new BranchForm();

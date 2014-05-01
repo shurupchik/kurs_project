@@ -290,7 +290,6 @@
             this.Name = "btnReportMerch";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Сеть торговых точек \"Магазин\"";
-            this.Load += new System.EventHandler(this.btnReportMerch_Load);
             this.gbImage.ResumeLayout(false);
             this.gbImage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -34,9 +34,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="OpenPop">
-      <HintPath>.\OpenPop.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
@@ -110,7 +107,6 @@
     <Compile Include="Forms\MerchForm.Designer.cs">
       <DependentUpon>MerchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes\Loader.cs" />
     <Compile Include="myDataBaseDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

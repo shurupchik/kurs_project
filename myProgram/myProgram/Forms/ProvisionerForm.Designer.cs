@@ -33,17 +33,17 @@
             this.btnEdition = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.dgvProv = new System.Windows.Forms.DataGridView();
+            this.myDataBaseDataSet = new myProgram.myDataBaseDataSet();
+            this.provisionerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.provisionerTableAdapter = new myProgram.myDataBaseDataSetTableAdapters.ProvisionerTableAdapter();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.agentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.provisionerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.myDataBaseDataSet = new myProgram.myDataBaseDataSet();
-            this.provisionerTableAdapter = new myProgram.myDataBaseDataSetTableAdapters.ProvisionerTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProv)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.provisionerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.myDataBaseDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.provisionerBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnDelete
@@ -91,14 +91,26 @@
             this.addressDataGridViewTextBoxColumn,
             this.agentDataGridViewTextBoxColumn,
             this.emailDataGridViewTextBoxColumn});
-            this.dgvProv.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.dgvProv.DataSource = this.provisionerBindingSource;
             this.dgvProv.Location = new System.Drawing.Point(13, 47);
             this.dgvProv.Name = "dgvProv";
             this.dgvProv.ReadOnly = true;
-            this.dgvProv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProv.Size = new System.Drawing.Size(759, 503);
             this.dgvProv.TabIndex = 9;
+            // 
+            // myDataBaseDataSet
+            // 
+            this.myDataBaseDataSet.DataSetName = "myDataBaseDataSet";
+            this.myDataBaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // provisionerBindingSource
+            // 
+            this.provisionerBindingSource.DataMember = "Provisioner";
+            this.provisionerBindingSource.DataSource = this.myDataBaseDataSet;
+            // 
+            // provisionerTableAdapter
+            // 
+            this.provisionerTableAdapter.ClearBeforeFill = true;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -139,20 +151,6 @@
             this.emailDataGridViewTextBoxColumn.ReadOnly = true;
             this.emailDataGridViewTextBoxColumn.Width = 150;
             // 
-            // provisionerBindingSource
-            // 
-            this.provisionerBindingSource.DataMember = "Provisioner";
-            this.provisionerBindingSource.DataSource = this.myDataBaseDataSet;
-            // 
-            // myDataBaseDataSet
-            // 
-            this.myDataBaseDataSet.DataSetName = "myDataBaseDataSet";
-            this.myDataBaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // provisionerTableAdapter
-            // 
-            this.provisionerTableAdapter.ClearBeforeFill = true;
-            // 
             // ProvisionerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -167,8 +165,8 @@
             this.Text = "Просмотр поставщиков";
             this.Load += new System.EventHandler(this.ProvisionerForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProv)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.provisionerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.myDataBaseDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.provisionerBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
