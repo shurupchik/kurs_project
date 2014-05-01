@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnCansel = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -38,6 +39,11 @@
             this.txtAgent = new System.Windows.Forms.TextBox();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
+            this.myDataBaseDataSet = new myProgram.myDataBaseDataSet();
+            this.provisionerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.provisionerTableAdapter = new myProgram.myDataBaseDataSetTableAdapters.ProvisionerTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.myDataBaseDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.provisionerBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCansel
@@ -102,6 +108,7 @@
             // 
             // txtMail
             // 
+            this.txtMail.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.provisionerBindingSource, "email", true));
             this.txtMail.Location = new System.Drawing.Point(160, 86);
             this.txtMail.Name = "txtMail";
             this.txtMail.Size = new System.Drawing.Size(354, 20);
@@ -109,6 +116,7 @@
             // 
             // txtAgent
             // 
+            this.txtAgent.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.provisionerBindingSource, "agent", true));
             this.txtAgent.Location = new System.Drawing.Point(160, 63);
             this.txtAgent.Name = "txtAgent";
             this.txtAgent.Size = new System.Drawing.Size(354, 20);
@@ -116,6 +124,7 @@
             // 
             // txtAddress
             // 
+            this.txtAddress.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.provisionerBindingSource, "address", true));
             this.txtAddress.Location = new System.Drawing.Point(160, 37);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(354, 20);
@@ -123,10 +132,25 @@
             // 
             // txtName
             // 
+            this.txtName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.provisionerBindingSource, "name", true));
             this.txtName.Location = new System.Drawing.Point(160, 11);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(354, 20);
             this.txtName.TabIndex = 11;
+            // 
+            // myDataBaseDataSet
+            // 
+            this.myDataBaseDataSet.DataSetName = "myDataBaseDataSet";
+            this.myDataBaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // provisionerBindingSource
+            // 
+            this.provisionerBindingSource.DataMember = "Provisioner";
+            this.provisionerBindingSource.DataSource = this.myDataBaseDataSet;
+            // 
+            // provisionerTableAdapter
+            // 
+            this.provisionerTableAdapter.ClearBeforeFill = true;
             // 
             // AddEdProvForm
             // 
@@ -150,6 +174,10 @@
             this.Name = "AddEdProvForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Добавление/Редактирвоание поставщика";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddEdProvForm_FormClosing);
+            this.Load += new System.EventHandler(this.AddEdProvForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.myDataBaseDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.provisionerBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -167,5 +195,8 @@
         private System.Windows.Forms.TextBox txtAgent;
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.TextBox txtName;
+        private myDataBaseDataSet myDataBaseDataSet;
+        public System.Windows.Forms.BindingSource provisionerBindingSource;
+        public myDataBaseDataSetTableAdapters.ProvisionerTableAdapter provisionerTableAdapter;
     }
 }
