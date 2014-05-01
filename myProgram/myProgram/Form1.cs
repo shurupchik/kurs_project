@@ -39,5 +39,11 @@ namespace myProgram
             CategoryForm categoryForm = new CategoryForm();
             categoryForm.ShowDialog();
         }
+
+        private void btnMerch_Click(object sender, EventArgs e)
+        {
+            MerchForm merchForm = new MerchForm();
+            merchForm.Show();
+        }
     }
 }
