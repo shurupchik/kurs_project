@@ -148,6 +148,7 @@
             this.btnManager.TabIndex = 1;
             this.btnManager.Text = "Просмотр менеджеров";
             this.btnManager.UseVisualStyleBackColor = true;
+            this.btnManager.Click += new System.EventHandler(this.btnManager_Click);
             // 
             // btnBranch
             // 

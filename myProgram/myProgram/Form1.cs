@@ -21,5 +21,11 @@ namespace myProgram
             BranchForm branchForm = new BranchForm();
             branchForm.Show();
         }
+
+        private void btnManager_Click(object sender, EventArgs e)
+        {
+            ManagerForm managerForm = new ManagerForm();
+            managerForm.Show();
+        }
     }
 }
