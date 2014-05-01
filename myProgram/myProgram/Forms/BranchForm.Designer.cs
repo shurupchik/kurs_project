@@ -28,11 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnEdition = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.dgvBranch = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.branchBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.myDataBaseDataSet = new myProgram.myDataBaseDataSet();
+            this.branchTableAdapter = new myProgram.myDataBaseDataSetTableAdapters.BranchTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBranch)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.branchBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.myDataBaseDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAdd
@@ -69,12 +80,78 @@
             // 
             // dgvBranch
             // 
+            this.dgvBranch.AllowUserToAddRows = false;
+            this.dgvBranch.AllowUserToDeleteRows = false;
+            this.dgvBranch.AutoGenerateColumns = false;
             this.dgvBranch.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dgvBranch.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             this.dgvBranch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBranch.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.addressDataGridViewTextBoxColumn,
+            this.fioDataGridViewTextBoxColumn,
+            this.emailDataGridViewTextBoxColumn});
+            this.dgvBranch.DataSource = this.branchBindingSource;
             this.dgvBranch.Location = new System.Drawing.Point(12, 47);
             this.dgvBranch.Name = "dgvBranch";
+            this.dgvBranch.ReadOnly = true;
+            this.dgvBranch.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBranch.Size = new System.Drawing.Size(760, 503);
             this.dgvBranch.TabIndex = 3;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Название";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // addressDataGridViewTextBoxColumn
+            // 
+            this.addressDataGridViewTextBoxColumn.DataPropertyName = "address";
+            this.addressDataGridViewTextBoxColumn.HeaderText = "Адрес";
+            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            this.addressDataGridViewTextBoxColumn.ReadOnly = true;
+            this.addressDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // fioDataGridViewTextBoxColumn
+            // 
+            this.fioDataGridViewTextBoxColumn.DataPropertyName = "fio";
+            this.fioDataGridViewTextBoxColumn.HeaderText = "ФИО начальника";
+            this.fioDataGridViewTextBoxColumn.Name = "fioDataGridViewTextBoxColumn";
+            this.fioDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fioDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            this.emailDataGridViewTextBoxColumn.DataPropertyName = "email";
+            this.emailDataGridViewTextBoxColumn.HeaderText = "Е-mail";
+            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            this.emailDataGridViewTextBoxColumn.ReadOnly = true;
+            this.emailDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // branchBindingSource
+            // 
+            this.branchBindingSource.DataMember = "Branch";
+            this.branchBindingSource.DataSource = this.myDataBaseDataSet;
+            // 
+            // myDataBaseDataSet
+            // 
+            this.myDataBaseDataSet.DataSetName = "myDataBaseDataSet";
+            this.myDataBaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // branchTableAdapter
+            // 
+            this.branchTableAdapter.ClearBeforeFill = true;
             // 
             // BranchForm
             // 
@@ -88,7 +165,10 @@
             this.Name = "BranchForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Просмотр филиалов";
+            this.Load += new System.EventHandler(this.BranchForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBranch)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.branchBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.myDataBaseDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -99,5 +179,13 @@
         private System.Windows.Forms.Button btnEdition;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.DataGridView dgvBranch;
+        public System.Windows.Forms.BindingSource branchBindingSource;
+        public myDataBaseDataSetTableAdapters.BranchTableAdapter branchTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
+        public myDataBaseDataSet myDataBaseDataSet;
     }
 }
