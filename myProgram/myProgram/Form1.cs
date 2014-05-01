@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace myProgram
 {
-    public partial class mainForm : Form
+    public partial class btnReportMerch : Form
     {
-        public mainForm()
+        public btnReportMerch()
         {
             InitializeComponent();
         }
