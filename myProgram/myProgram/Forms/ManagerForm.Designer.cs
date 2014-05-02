@@ -33,15 +33,16 @@
             this.btnEdition = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.dgvManager = new System.Windows.Forms.DataGridView();
-            this.myDataBaseDataSet = new myProgram.myDataBaseDataSet();
-            this.managerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.managerTableAdapter = new myProgram.myDataBaseDataSetTableAdapters.ManagerTableAdapter();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.branchIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvManagerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.myDataBaseDataSet = new myProgram.myDataBaseDataSet();
+            this.dgvManagerTableAdapter = new myProgram.myDataBaseDataSetTableAdapters.dgvManagerTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dgvManager)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvManagerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.myDataBaseDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.managerBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnDelete
@@ -63,6 +64,7 @@
             this.btnEdition.TabIndex = 4;
             this.btnEdition.Text = "Редактировать";
             this.btnEdition.UseVisualStyleBackColor = true;
+            this.btnEdition.Click += new System.EventHandler(this.btnEdition_Click);
             // 
             // btnAdd
             // 
@@ -85,27 +87,14 @@
             this.dgvManager.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
             this.branchIdDataGridViewTextBoxColumn,
-            this.fioDataGridViewTextBoxColumn});
-            this.dgvManager.DataSource = this.managerBindingSource;
+            this.fioDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn});
+            this.dgvManager.DataSource = this.dgvManagerBindingSource;
             this.dgvManager.Location = new System.Drawing.Point(12, 47);
             this.dgvManager.Name = "dgvManager";
             this.dgvManager.ReadOnly = true;
             this.dgvManager.Size = new System.Drawing.Size(760, 503);
             this.dgvManager.TabIndex = 6;
-            // 
-            // myDataBaseDataSet
-            // 
-            this.myDataBaseDataSet.DataSetName = "myDataBaseDataSet";
-            this.myDataBaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // managerBindingSource
-            // 
-            this.managerBindingSource.DataMember = "Manager";
-            this.managerBindingSource.DataSource = this.myDataBaseDataSet;
-            // 
-            // managerTableAdapter
-            // 
-            this.managerTableAdapter.ClearBeforeFill = true;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -128,6 +117,27 @@
             this.fioDataGridViewTextBoxColumn.Name = "fioDataGridViewTextBoxColumn";
             this.fioDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dgvManagerBindingSource
+            // 
+            this.dgvManagerBindingSource.DataMember = "dgvManager";
+            this.dgvManagerBindingSource.DataSource = this.myDataBaseDataSet;
+            // 
+            // myDataBaseDataSet
+            // 
+            this.myDataBaseDataSet.DataSetName = "myDataBaseDataSet";
+            this.myDataBaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dgvManagerTableAdapter
+            // 
+            this.dgvManagerTableAdapter.ClearBeforeFill = true;
+            // 
             // ManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -142,8 +152,8 @@
             this.Text = "Просмотр менеджеров";
             this.Load += new System.EventHandler(this.ManagerForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvManager)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvManagerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.myDataBaseDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.managerBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -154,11 +164,12 @@
         private System.Windows.Forms.Button btnEdition;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.DataGridView dgvManager;
-        private myDataBaseDataSet myDataBaseDataSet;
-        private System.Windows.Forms.BindingSource managerBindingSource;
-        private myDataBaseDataSetTableAdapters.ManagerTableAdapter managerTableAdapter;
+        public myDataBaseDataSet myDataBaseDataSet;
+        public System.Windows.Forms.BindingSource dgvManagerBindingSource;
+        public myDataBaseDataSetTableAdapters.dgvManagerTableAdapter dgvManagerTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn branchIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
     }
 }
