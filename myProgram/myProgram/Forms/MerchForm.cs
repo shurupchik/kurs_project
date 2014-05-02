@@ -54,5 +54,12 @@ namespace myProgram
                 dgvMerch.CurrentCell = dgvMerch.Rows[index].Cells[2];
             }
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            dgvMerchBindingSource.RemoveCurrent();
+            dgvMerchBindingSource.EndEdit();
+            dgvMerchTableAdapter.Update(myDataBaseDataSet.dgvMerch);
+        }
     }
 }

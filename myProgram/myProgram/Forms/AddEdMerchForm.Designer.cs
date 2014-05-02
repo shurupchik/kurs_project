@@ -36,20 +36,20 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtArtno = new System.Windows.Forms.TextBox();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.cbCategory = new System.Windows.Forms.ComboBox();
-            this.cbBranch = new System.Windows.Forms.ComboBox();
             this.merchandiseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.myDataBaseDataSet = new myProgram.myDataBaseDataSet();
-            this.branchBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.branchTableAdapter = new myProgram.myDataBaseDataSetTableAdapters.BranchTableAdapter();
-            this.merchandiseTableAdapter = new myProgram.myDataBaseDataSetTableAdapters.MerchandiseTableAdapter();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.cbCategory = new System.Windows.Forms.ComboBox();
             this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cbBranch = new System.Windows.Forms.ComboBox();
+            this.merchandiseTableAdapter = new myProgram.myDataBaseDataSetTableAdapters.MerchandiseTableAdapter();
             this.categoryTableAdapter = new myProgram.myDataBaseDataSetTableAdapters.CategoryTableAdapter();
+            this.provisionerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.provisionerTableAdapter = new myProgram.myDataBaseDataSetTableAdapters.ProvisionerTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.merchandiseBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.myDataBaseDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.branchBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.provisionerBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCansel
@@ -120,6 +120,16 @@
             this.txtArtno.Size = new System.Drawing.Size(354, 20);
             this.txtArtno.TabIndex = 14;
             // 
+            // merchandiseBindingSource
+            // 
+            this.merchandiseBindingSource.DataMember = "Merchandise";
+            this.merchandiseBindingSource.DataSource = this.myDataBaseDataSet;
+            // 
+            // myDataBaseDataSet
+            // 
+            this.myDataBaseDataSet.DataSetName = "myDataBaseDataSet";
+            this.myDataBaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // txtName
             // 
             this.txtName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.merchandiseBindingSource, "name", true));
@@ -140,10 +150,15 @@
             this.cbCategory.TabIndex = 21;
             this.cbCategory.ValueMember = "id";
             // 
+            // categoryBindingSource
+            // 
+            this.categoryBindingSource.DataMember = "Category";
+            this.categoryBindingSource.DataSource = this.myDataBaseDataSet;
+            // 
             // cbBranch
             // 
             this.cbBranch.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.merchandiseBindingSource, "provId", true));
-            this.cbBranch.DataSource = this.branchBindingSource;
+            this.cbBranch.DataSource = this.provisionerBindingSource;
             this.cbBranch.DisplayMember = "name";
             this.cbBranch.FormattingEnabled = true;
             this.cbBranch.Location = new System.Drawing.Point(133, 34);
@@ -152,37 +167,22 @@
             this.cbBranch.TabIndex = 22;
             this.cbBranch.ValueMember = "id";
             // 
-            // merchandiseBindingSource
-            // 
-            this.merchandiseBindingSource.DataMember = "Merchandise";
-            this.merchandiseBindingSource.DataSource = this.myDataBaseDataSet;
-            // 
-            // myDataBaseDataSet
-            // 
-            this.myDataBaseDataSet.DataSetName = "myDataBaseDataSet";
-            this.myDataBaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // branchBindingSource
-            // 
-            this.branchBindingSource.DataMember = "Branch";
-            this.branchBindingSource.DataSource = this.myDataBaseDataSet;
-            // 
-            // branchTableAdapter
-            // 
-            this.branchTableAdapter.ClearBeforeFill = true;
-            // 
             // merchandiseTableAdapter
             // 
             this.merchandiseTableAdapter.ClearBeforeFill = true;
             // 
-            // categoryBindingSource
-            // 
-            this.categoryBindingSource.DataMember = "Category";
-            this.categoryBindingSource.DataSource = this.myDataBaseDataSet;
-            // 
             // categoryTableAdapter
             // 
             this.categoryTableAdapter.ClearBeforeFill = true;
+            // 
+            // provisionerBindingSource
+            // 
+            this.provisionerBindingSource.DataMember = "Provisioner";
+            this.provisionerBindingSource.DataSource = this.myDataBaseDataSet;
+            // 
+            // provisionerTableAdapter
+            // 
+            this.provisionerTableAdapter.ClearBeforeFill = true;
             // 
             // AddEdMerchForm
             // 
@@ -210,8 +210,8 @@
             this.Load += new System.EventHandler(this.AddEdMerchForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.merchandiseBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.myDataBaseDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.branchBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.provisionerBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -230,11 +230,11 @@
         private System.Windows.Forms.ComboBox cbCategory;
         private System.Windows.Forms.ComboBox cbBranch;
         public myDataBaseDataSet myDataBaseDataSet;
-        public System.Windows.Forms.BindingSource branchBindingSource;
-        public myDataBaseDataSetTableAdapters.BranchTableAdapter branchTableAdapter;
         public System.Windows.Forms.BindingSource merchandiseBindingSource;
         public myDataBaseDataSetTableAdapters.MerchandiseTableAdapter merchandiseTableAdapter;
         public System.Windows.Forms.BindingSource categoryBindingSource;
         public myDataBaseDataSetTableAdapters.CategoryTableAdapter categoryTableAdapter;
+        public System.Windows.Forms.BindingSource provisionerBindingSource;
+        public myDataBaseDataSetTableAdapters.ProvisionerTableAdapter provisionerTableAdapter;
     }
 }

@@ -53,6 +53,13 @@ namespace myProgram
                 this.dgvManagerTableAdapter.Fill(this.myDataBaseDataSet.dgvManager);
                 dgvManager.CurrentCell = dgvManager.Rows[index].Cells[2];
             }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            dgvManagerBindingSource.RemoveCurrent();
+            dgvManagerBindingSource.EndEdit();
+            dgvManagerTableAdapter.Update(myDataBaseDataSet.dgvManager);   
         }  
     }
 }

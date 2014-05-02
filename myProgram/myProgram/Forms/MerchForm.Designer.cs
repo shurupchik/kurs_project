@@ -34,12 +34,12 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.dgvMerch = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.provIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.artnoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameProvDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameCategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.provIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameProvDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvMerchBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.myDataBaseDataSet = new myProgram.myDataBaseDataSet();
             this.dgvMerchTableAdapter = new myProgram.myDataBaseDataSetTableAdapters.dgvMerchTableAdapter();
@@ -57,6 +57,7 @@
             this.btnDelete.TabIndex = 14;
             this.btnDelete.Text = "Удалить";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnEdition
             // 
@@ -89,12 +90,12 @@
             this.dgvMerch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMerch.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
-            this.categoryIdDataGridViewTextBoxColumn,
-            this.provIdDataGridViewTextBoxColumn,
             this.nameDataGridViewTextBoxColumn,
             this.artnoDataGridViewTextBoxColumn,
-            this.nameProvDataGridViewTextBoxColumn,
-            this.nameCategoryDataGridViewTextBoxColumn});
+            this.categoryIdDataGridViewTextBoxColumn,
+            this.nameCategoryDataGridViewTextBoxColumn,
+            this.provIdDataGridViewTextBoxColumn,
+            this.nameProvDataGridViewTextBoxColumn});
             this.dgvMerch.DataSource = this.dgvMerchBindingSource;
             this.dgvMerch.Location = new System.Drawing.Point(12, 46);
             this.dgvMerch.Name = "dgvMerch";
@@ -110,12 +111,33 @@
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             this.idDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Название";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // artnoDataGridViewTextBoxColumn
+            // 
+            this.artnoDataGridViewTextBoxColumn.DataPropertyName = "artno";
+            this.artnoDataGridViewTextBoxColumn.HeaderText = "Артикул";
+            this.artnoDataGridViewTextBoxColumn.Name = "artnoDataGridViewTextBoxColumn";
+            this.artnoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // categoryIdDataGridViewTextBoxColumn
             // 
             this.categoryIdDataGridViewTextBoxColumn.DataPropertyName = "categoryId";
             this.categoryIdDataGridViewTextBoxColumn.HeaderText = "categoryId";
             this.categoryIdDataGridViewTextBoxColumn.Name = "categoryIdDataGridViewTextBoxColumn";
             this.categoryIdDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameCategoryDataGridViewTextBoxColumn
+            // 
+            this.nameCategoryDataGridViewTextBoxColumn.DataPropertyName = "nameCategory";
+            this.nameCategoryDataGridViewTextBoxColumn.HeaderText = "Категория";
+            this.nameCategoryDataGridViewTextBoxColumn.Name = "nameCategoryDataGridViewTextBoxColumn";
+            this.nameCategoryDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // provIdDataGridViewTextBoxColumn
             // 
@@ -124,33 +146,12 @@
             this.provIdDataGridViewTextBoxColumn.Name = "provIdDataGridViewTextBoxColumn";
             this.provIdDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // artnoDataGridViewTextBoxColumn
-            // 
-            this.artnoDataGridViewTextBoxColumn.DataPropertyName = "artno";
-            this.artnoDataGridViewTextBoxColumn.HeaderText = "artno";
-            this.artnoDataGridViewTextBoxColumn.Name = "artnoDataGridViewTextBoxColumn";
-            this.artnoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // nameProvDataGridViewTextBoxColumn
             // 
             this.nameProvDataGridViewTextBoxColumn.DataPropertyName = "nameProv";
-            this.nameProvDataGridViewTextBoxColumn.HeaderText = "nameProv";
+            this.nameProvDataGridViewTextBoxColumn.HeaderText = "Поставщик";
             this.nameProvDataGridViewTextBoxColumn.Name = "nameProvDataGridViewTextBoxColumn";
             this.nameProvDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nameCategoryDataGridViewTextBoxColumn
-            // 
-            this.nameCategoryDataGridViewTextBoxColumn.DataPropertyName = "nameCategory";
-            this.nameCategoryDataGridViewTextBoxColumn.HeaderText = "nameCategory";
-            this.nameCategoryDataGridViewTextBoxColumn.Name = "nameCategoryDataGridViewTextBoxColumn";
-            this.nameCategoryDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // dgvMerchBindingSource
             // 
@@ -196,11 +197,11 @@
         public System.Windows.Forms.BindingSource dgvMerchBindingSource;
         public myDataBaseDataSetTableAdapters.dgvMerchTableAdapter dgvMerchTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn categoryIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn provIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn artnoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameProvDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn categoryIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameCategoryDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn provIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameProvDataGridViewTextBoxColumn;
     }
 }

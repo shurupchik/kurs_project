@@ -187,6 +187,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
-        public myDataBaseDataSet myDataBaseDataSet;
+        private myDataBaseDataSet myDataBaseDataSet;
     }
 }
