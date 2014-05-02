@@ -28,11 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdition = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.dgvManager = new System.Windows.Forms.DataGridView();
+            this.myDataBaseDataSet = new myProgram.myDataBaseDataSet();
+            this.managerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.managerTableAdapter = new myProgram.myDataBaseDataSetTableAdapters.ManagerTableAdapter();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.branchIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvManager)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.myDataBaseDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.managerBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnDelete
@@ -54,7 +63,6 @@
             this.btnEdition.TabIndex = 4;
             this.btnEdition.Text = "Редактировать";
             this.btnEdition.UseVisualStyleBackColor = true;
-            this.btnEdition.Click += new System.EventHandler(this.btnEdition_Click);
             // 
             // btnAdd
             // 
@@ -69,12 +77,56 @@
             // 
             // dgvManager
             // 
+            this.dgvManager.AllowUserToAddRows = false;
+            this.dgvManager.AllowUserToDeleteRows = false;
+            this.dgvManager.AutoGenerateColumns = false;
             this.dgvManager.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgvManager.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvManager.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.branchIdDataGridViewTextBoxColumn,
+            this.fioDataGridViewTextBoxColumn});
+            this.dgvManager.DataSource = this.managerBindingSource;
             this.dgvManager.Location = new System.Drawing.Point(12, 47);
             this.dgvManager.Name = "dgvManager";
+            this.dgvManager.ReadOnly = true;
             this.dgvManager.Size = new System.Drawing.Size(760, 503);
             this.dgvManager.TabIndex = 6;
+            // 
+            // myDataBaseDataSet
+            // 
+            this.myDataBaseDataSet.DataSetName = "myDataBaseDataSet";
+            this.myDataBaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // managerBindingSource
+            // 
+            this.managerBindingSource.DataMember = "Manager";
+            this.managerBindingSource.DataSource = this.myDataBaseDataSet;
+            // 
+            // managerTableAdapter
+            // 
+            this.managerTableAdapter.ClearBeforeFill = true;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // branchIdDataGridViewTextBoxColumn
+            // 
+            this.branchIdDataGridViewTextBoxColumn.DataPropertyName = "branchId";
+            this.branchIdDataGridViewTextBoxColumn.HeaderText = "branchId";
+            this.branchIdDataGridViewTextBoxColumn.Name = "branchIdDataGridViewTextBoxColumn";
+            this.branchIdDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fioDataGridViewTextBoxColumn
+            // 
+            this.fioDataGridViewTextBoxColumn.DataPropertyName = "fio";
+            this.fioDataGridViewTextBoxColumn.HeaderText = "fio";
+            this.fioDataGridViewTextBoxColumn.Name = "fioDataGridViewTextBoxColumn";
+            this.fioDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // ManagerForm
             // 
@@ -88,7 +140,10 @@
             this.Name = "ManagerForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Просмотр менеджеров";
+            this.Load += new System.EventHandler(this.ManagerForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvManager)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.myDataBaseDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.managerBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -99,5 +154,11 @@
         private System.Windows.Forms.Button btnEdition;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.DataGridView dgvManager;
+        private myDataBaseDataSet myDataBaseDataSet;
+        private System.Windows.Forms.BindingSource managerBindingSource;
+        private myDataBaseDataSetTableAdapters.ManagerTableAdapter managerTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn branchIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fioDataGridViewTextBoxColumn;
     }
 }

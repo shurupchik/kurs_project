@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.txtName = new System.Windows.Forms.TextBox();
+            this.branchBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.myDataBaseDataSet = new myProgram.myDataBaseDataSet();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.txtAgent = new System.Windows.Forms.TextBox();
             this.txtMail = new System.Windows.Forms.TextBox();
@@ -39,11 +41,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnOk = new System.Windows.Forms.Button();
             this.btnCansel = new System.Windows.Forms.Button();
-            this.myDataBaseDataSet = new myProgram.myDataBaseDataSet();
-            this.branchBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.branchTableAdapter = new myProgram.myDataBaseDataSetTableAdapters.BranchTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.myDataBaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.branchBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.myDataBaseDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // txtName
@@ -53,6 +53,16 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(354, 20);
             this.txtName.TabIndex = 0;
+            // 
+            // branchBindingSource
+            // 
+            this.branchBindingSource.DataMember = "Branch";
+            this.branchBindingSource.DataSource = this.myDataBaseDataSet;
+            // 
+            // myDataBaseDataSet
+            // 
+            this.myDataBaseDataSet.DataSetName = "myDataBaseDataSet";
+            this.myDataBaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // txtAddress
             // 
@@ -138,16 +148,6 @@
             this.btnCansel.Text = "Cancel";
             this.btnCansel.UseVisualStyleBackColor = true;
             // 
-            // myDataBaseDataSet
-            // 
-            this.myDataBaseDataSet.DataSetName = "myDataBaseDataSet";
-            this.myDataBaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // branchBindingSource
-            // 
-            this.branchBindingSource.DataMember = "Branch";
-            this.branchBindingSource.DataSource = this.myDataBaseDataSet;
-            // 
             // branchTableAdapter
             // 
             this.branchTableAdapter.ClearBeforeFill = true;
@@ -176,8 +176,8 @@
             this.Text = "Добавление/Редактирование филиала";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddEdBranchForm_FormClosing);
             this.Load += new System.EventHandler(this.AddEdBranchForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.myDataBaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.branchBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.myDataBaseDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -195,8 +195,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.Button btnCansel;
-        private myDataBaseDataSet myDataBaseDataSet;
         public System.Windows.Forms.BindingSource branchBindingSource;
         public myDataBaseDataSetTableAdapters.BranchTableAdapter branchTableAdapter;
+        public myDataBaseDataSet myDataBaseDataSet;
     }
 }

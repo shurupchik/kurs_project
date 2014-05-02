@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnCansel = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -38,6 +39,14 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.cbCategory = new System.Windows.Forms.ComboBox();
             this.cbBranch = new System.Windows.Forms.ComboBox();
+            this.myDataBaseDataSet = new myProgram.myDataBaseDataSet();
+            this.branchBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.branchTableAdapter = new myProgram.myDataBaseDataSetTableAdapters.BranchTableAdapter();
+            this.merchandiseBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.merchandiseTableAdapter = new myProgram.myDataBaseDataSetTableAdapters.MerchandiseTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.myDataBaseDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.branchBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.merchandiseBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCansel
@@ -124,11 +133,38 @@
             // 
             // cbBranch
             // 
+            this.cbBranch.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.merchandiseBindingSource, "provId", true));
+            this.cbBranch.DataSource = this.branchBindingSource;
+            this.cbBranch.DisplayMember = "name";
             this.cbBranch.FormattingEnabled = true;
             this.cbBranch.Location = new System.Drawing.Point(133, 34);
             this.cbBranch.Name = "cbBranch";
             this.cbBranch.Size = new System.Drawing.Size(354, 21);
             this.cbBranch.TabIndex = 22;
+            this.cbBranch.ValueMember = "id";
+            // 
+            // myDataBaseDataSet
+            // 
+            this.myDataBaseDataSet.DataSetName = "myDataBaseDataSet";
+            this.myDataBaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // branchBindingSource
+            // 
+            this.branchBindingSource.DataMember = "Branch";
+            this.branchBindingSource.DataSource = this.myDataBaseDataSet;
+            // 
+            // branchTableAdapter
+            // 
+            this.branchTableAdapter.ClearBeforeFill = true;
+            // 
+            // merchandiseBindingSource
+            // 
+            this.merchandiseBindingSource.DataMember = "Merchandise";
+            this.merchandiseBindingSource.DataSource = this.myDataBaseDataSet;
+            // 
+            // merchandiseTableAdapter
+            // 
+            this.merchandiseTableAdapter.ClearBeforeFill = true;
             // 
             // AddEdMerchForm
             // 
@@ -152,6 +188,10 @@
             this.Name = "AddEdMerchForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Добавить/Редактировать товар";
+            this.Load += new System.EventHandler(this.AddEdMerchForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.myDataBaseDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.branchBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.merchandiseBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,5 +209,10 @@
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.ComboBox cbCategory;
         private System.Windows.Forms.ComboBox cbBranch;
+        private myDataBaseDataSet myDataBaseDataSet;
+        private System.Windows.Forms.BindingSource branchBindingSource;
+        private myDataBaseDataSetTableAdapters.BranchTableAdapter branchTableAdapter;
+        private System.Windows.Forms.BindingSource merchandiseBindingSource;
+        private myDataBaseDataSetTableAdapters.MerchandiseTableAdapter merchandiseTableAdapter;
     }
 }

@@ -16,22 +16,26 @@ namespace myProgram
             InitializeComponent();
         }
 
+        private void ManagerForm_Load(object sender, EventArgs e)
+        {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "myDataBaseDataSet.Manager". При необходимости она может быть перемещена или удалена.
+            this.managerTableAdapter.Fill(this.myDataBaseDataSet.Manager);
+
+        }
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
             AddEdManagerForm form = new AddEdManagerForm();
+            managerBindingSource.AddNew();
+
+            form.managerBindingSource.DataSource = managerBindingSource;
+            form.managerBindingSource.Position = managerBindingSource.Position;
+
             if (form.ShowDialog() == DialogResult.OK)
-            { }
-            else
-            { }
+            {
+                managerTableAdapter.Update(myDataBaseDataSet.Manager);
+            }
         }
 
-        private void btnEdition_Click(object sender, EventArgs e)
-        {
-            AddEdManagerForm form = new AddEdManagerForm();
-            if (form.ShowDialog() == DialogResult.OK)
-            { }
-            else
-            { }
-        }
     }
 }
