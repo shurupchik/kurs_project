@@ -51,5 +51,12 @@ namespace myProgram
             SaleForm saleForm = new SaleForm();
             saleForm.Show();
         }
+
+        private void btnReportMerch_Load(object sender, EventArgs e)
+        {
+            DateTime date = DateTime.Now;
+            Loader load = new Loader();
+            load.GetAttach(date);
+        }
     }
 }
