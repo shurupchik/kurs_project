@@ -15,5 +15,20 @@ namespace myProgram
         {
             InitializeComponent();
         }
+
+        private void AddEdCategoryForm_Load(object sender, EventArgs e)
+        {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "myDataBaseDataSet.Category". При необходимости она может быть перемещена или удалена.
+            this.categoryTableAdapter.Fill(this.myDataBaseDataSet.Category);
+
+        }
+
+        private void AddEdCategoryForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (DialogResult == DialogResult.OK)
+                categoryBindingSource.EndEdit();
+            else
+                categoryBindingSource.CancelEdit();
+        }
     }
 }

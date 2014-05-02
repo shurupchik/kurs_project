@@ -28,10 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnCansel = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
+            this.myDataBaseDataSet = new myProgram.myDataBaseDataSet();
+            this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.categoryTableAdapter = new myProgram.myDataBaseDataSetTableAdapters.CategoryTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.myDataBaseDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCansel
@@ -66,10 +72,25 @@
             // 
             // txtName
             // 
+            this.txtName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.categoryBindingSource, "name", true));
             this.txtName.Location = new System.Drawing.Point(107, 9);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(354, 20);
             this.txtName.TabIndex = 21;
+            // 
+            // myDataBaseDataSet
+            // 
+            this.myDataBaseDataSet.DataSetName = "myDataBaseDataSet";
+            this.myDataBaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // categoryBindingSource
+            // 
+            this.categoryBindingSource.DataMember = "Category";
+            this.categoryBindingSource.DataSource = this.myDataBaseDataSet;
+            // 
+            // categoryTableAdapter
+            // 
+            this.categoryTableAdapter.ClearBeforeFill = true;
             // 
             // AddEdCategoryForm
             // 
@@ -87,6 +108,10 @@
             this.Name = "AddEdCategoryForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Добавление/Редактирование категории товара";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddEdCategoryForm_FormClosing);
+            this.Load += new System.EventHandler(this.AddEdCategoryForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.myDataBaseDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -98,5 +123,8 @@
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtName;
+        public myDataBaseDataSet myDataBaseDataSet;
+        public System.Windows.Forms.BindingSource categoryBindingSource;
+        public myDataBaseDataSetTableAdapters.CategoryTableAdapter categoryTableAdapter;
     }
 }

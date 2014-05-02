@@ -39,14 +39,17 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.cbCategory = new System.Windows.Forms.ComboBox();
             this.cbBranch = new System.Windows.Forms.ComboBox();
+            this.merchandiseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.myDataBaseDataSet = new myProgram.myDataBaseDataSet();
             this.branchBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.branchTableAdapter = new myProgram.myDataBaseDataSetTableAdapters.BranchTableAdapter();
-            this.merchandiseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.merchandiseTableAdapter = new myProgram.myDataBaseDataSetTableAdapters.MerchandiseTableAdapter();
+            this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.categoryTableAdapter = new myProgram.myDataBaseDataSetTableAdapters.CategoryTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.merchandiseBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.myDataBaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.branchBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.merchandiseBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCansel
@@ -93,11 +96,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(70, 35);
+            this.label2.Location = new System.Drawing.Point(47, 35);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 16);
+            this.label2.Size = new System.Drawing.Size(80, 16);
             this.label2.TabIndex = 16;
-            this.label2.Text = "Филиал";
+            this.label2.Text = "Поставщик";
             // 
             // label1
             // 
@@ -111,6 +114,7 @@
             // 
             // txtArtno
             // 
+            this.txtArtno.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.merchandiseBindingSource, "artno", true));
             this.txtArtno.Location = new System.Drawing.Point(133, 86);
             this.txtArtno.Name = "txtArtno";
             this.txtArtno.Size = new System.Drawing.Size(354, 20);
@@ -118,6 +122,7 @@
             // 
             // txtName
             // 
+            this.txtName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.merchandiseBindingSource, "name", true));
             this.txtName.Location = new System.Drawing.Point(133, 60);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(354, 20);
@@ -125,11 +130,15 @@
             // 
             // cbCategory
             // 
+            this.cbCategory.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.merchandiseBindingSource, "categoryId", true));
+            this.cbCategory.DataSource = this.categoryBindingSource;
+            this.cbCategory.DisplayMember = "name";
             this.cbCategory.FormattingEnabled = true;
             this.cbCategory.Location = new System.Drawing.Point(133, 7);
             this.cbCategory.Name = "cbCategory";
             this.cbCategory.Size = new System.Drawing.Size(354, 21);
             this.cbCategory.TabIndex = 21;
+            this.cbCategory.ValueMember = "id";
             // 
             // cbBranch
             // 
@@ -142,6 +151,11 @@
             this.cbBranch.Size = new System.Drawing.Size(354, 21);
             this.cbBranch.TabIndex = 22;
             this.cbBranch.ValueMember = "id";
+            // 
+            // merchandiseBindingSource
+            // 
+            this.merchandiseBindingSource.DataMember = "Merchandise";
+            this.merchandiseBindingSource.DataSource = this.myDataBaseDataSet;
             // 
             // myDataBaseDataSet
             // 
@@ -157,14 +171,18 @@
             // 
             this.branchTableAdapter.ClearBeforeFill = true;
             // 
-            // merchandiseBindingSource
-            // 
-            this.merchandiseBindingSource.DataMember = "Merchandise";
-            this.merchandiseBindingSource.DataSource = this.myDataBaseDataSet;
-            // 
             // merchandiseTableAdapter
             // 
             this.merchandiseTableAdapter.ClearBeforeFill = true;
+            // 
+            // categoryBindingSource
+            // 
+            this.categoryBindingSource.DataMember = "Category";
+            this.categoryBindingSource.DataSource = this.myDataBaseDataSet;
+            // 
+            // categoryTableAdapter
+            // 
+            this.categoryTableAdapter.ClearBeforeFill = true;
             // 
             // AddEdMerchForm
             // 
@@ -188,10 +206,12 @@
             this.Name = "AddEdMerchForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Добавить/Редактировать товар";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddEdMerchForm_FormClosing);
             this.Load += new System.EventHandler(this.AddEdMerchForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.merchandiseBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.myDataBaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.branchBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.merchandiseBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -209,10 +229,12 @@
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.ComboBox cbCategory;
         private System.Windows.Forms.ComboBox cbBranch;
-        private myDataBaseDataSet myDataBaseDataSet;
-        private System.Windows.Forms.BindingSource branchBindingSource;
-        private myDataBaseDataSetTableAdapters.BranchTableAdapter branchTableAdapter;
-        private System.Windows.Forms.BindingSource merchandiseBindingSource;
-        private myDataBaseDataSetTableAdapters.MerchandiseTableAdapter merchandiseTableAdapter;
+        public myDataBaseDataSet myDataBaseDataSet;
+        public System.Windows.Forms.BindingSource branchBindingSource;
+        public myDataBaseDataSetTableAdapters.BranchTableAdapter branchTableAdapter;
+        public System.Windows.Forms.BindingSource merchandiseBindingSource;
+        public myDataBaseDataSetTableAdapters.MerchandiseTableAdapter merchandiseTableAdapter;
+        public System.Windows.Forms.BindingSource categoryBindingSource;
+        public myDataBaseDataSetTableAdapters.CategoryTableAdapter categoryTableAdapter;
     }
 }

@@ -93,6 +93,7 @@
             this.dgvManager.Location = new System.Drawing.Point(12, 47);
             this.dgvManager.Name = "dgvManager";
             this.dgvManager.ReadOnly = true;
+            this.dgvManager.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvManager.Size = new System.Drawing.Size(760, 503);
             this.dgvManager.TabIndex = 6;
             // 
@@ -113,16 +114,18 @@
             // fioDataGridViewTextBoxColumn
             // 
             this.fioDataGridViewTextBoxColumn.DataPropertyName = "fio";
-            this.fioDataGridViewTextBoxColumn.HeaderText = "fio";
+            this.fioDataGridViewTextBoxColumn.HeaderText = "ФИО менеджера";
             this.fioDataGridViewTextBoxColumn.Name = "fioDataGridViewTextBoxColumn";
             this.fioDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fioDataGridViewTextBoxColumn.Width = 150;
             // 
             // nameDataGridViewTextBoxColumn
             // 
             this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Название филиала";
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn.Width = 150;
             // 
             // dgvManagerBindingSource
             // 

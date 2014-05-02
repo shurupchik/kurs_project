@@ -16,22 +16,34 @@ namespace myProgram
             InitializeComponent();
         }
 
+        private void CategoryForm_Load(object sender, EventArgs e)
+        {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "myDataBaseDataSet.Category". При необходимости она может быть перемещена или удалена.
+            this.categoryTableAdapter.Fill(this.myDataBaseDataSet.Category);
+
+        }
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
             AddEdCategoryForm form = new AddEdCategoryForm();
+            categoryBindingSource.AddNew();
+
+            form.categoryBindingSource.DataSource = categoryBindingSource;
+            form.categoryBindingSource.Position = categoryBindingSource.Position;
+
             if (form.ShowDialog() == DialogResult.OK)
-            { }
-            else
-            { }
+                categoryTableAdapter.Update(myDataBaseDataSet.Category);
         }
 
         private void btnEdition_Click(object sender, EventArgs e)
         {
             AddEdCategoryForm form = new AddEdCategoryForm();
+
+            form.categoryBindingSource.DataSource = categoryBindingSource;
+            form.categoryBindingSource.Position = categoryBindingSource.Position;
+
             if (form.ShowDialog() == DialogResult.OK)
-            { }
-            else
-            { }
+                categoryTableAdapter.Update(myDataBaseDataSet.Category);
         }
     }
 }
